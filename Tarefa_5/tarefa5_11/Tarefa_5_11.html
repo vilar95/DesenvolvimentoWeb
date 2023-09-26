@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha uma fruta</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .box {
+            display: center ;
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #resultado {
+            color: darkblue;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .blue-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .grey-button {
+            background-color: grey;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        div{
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Escolha uma fruta</h1>
+    <div class="box">
+        <h3>Selecione:</h3>
+        <form id="myForm">
+            <!-- Campo das frutas -->
+            <form action="/submit" method="post">
+                <label for="frutas">Escolha uma fruta:</label>
+                <select name="frutas" id="frutas">
+                    <option value="Maça">Maçã</option>
+                    <option value="Banana">Banana</option>
+                    <option value="Pera">Pera</option>
+                </select>
+            </form>
+            <div>
+                <!-- Botão de Enviar -->
+                <button type="button" class="blue-button" onclick="mostrarValores()">Enviar</button>
+                <!-- Botão de Reset -->
+                <button type="button" class="grey-button" onclick="limparFormulario()">Reset</button>
+            </div>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function mostrarValores() {
+            // Pegar os valores dos campos de entrada
+            const frutaEscolhida = document.getElementById('frutas').value;
+            
+
+            // Exibir os valores no elemento com id="resultado"
+            document.getElementById('resultado').innerHTML = `Fruta escolhida: ${frutaEscolhida}`;
+        }
+
+        // Função para limpar o formulário
+        function limparFormulario() {
+            document.getElementById('frutas').value = '';
+            document.getElementById('resultado').innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>
